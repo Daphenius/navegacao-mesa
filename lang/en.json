@@ -1,0 +1,404 @@
+{
+  "NAVMESA": {
+    "Nome": "Table Navigation",
+    "Config": {
+      "EscalaPadrao": {
+        "Nome": "Default travel scale (km per ruler unit)",
+        "Dica": "How many km each grid unit (e.g. each meter) is worth in scenes without their own scale. 0 = off. Each scene can have its own in the Grid tab of the scene configuration."
+      },
+      "KmPorDia": {
+        "Nome": "km per travel day (ruler estimate)",
+        "Dica": "Only used to show days on the ruler. Default: normal pace (4.8 km/h) for 8 hours = 38.4 km. The real trip uses the pace chosen in the calendar."
+      },
+      "MostrarNaRegua": {
+        "Nome": "Show km on the ruler",
+        "Dica": "When measuring in a scene with a travel scale, each ruler point also shows km and the last one shows days."
+      },
+      "CorRota": {
+        "Nome": "Route color",
+        "Dica": "Line color of routes saved on the map."
+      },
+      "PedirRolagem": {
+        "Nome": "Ask for 1d100 each travel day",
+        "Dica": "When starting a Calendário da Mesa trip (and at each dawn in day-by-day travel), a 1d100 request for the guides appears in chat."
+      },
+      "ResultadoVisivel": {
+        "Nome": "Who sees the encounter",
+        "Dica": "Everyone: the encounter is shown in chat. GM only: players see only the rolled number.",
+        "Todos": "Everyone",
+        "Mestre": "GM only"
+      },
+      "Obstaculos": {
+        "Nome": "Road obstacles",
+        "Dica": "Each travel day the GM rolls 1d100 against the day's chance (route terrain + Calendário da Mesa weather). On a hit, an obstacle appears in chat with a suggested delay."
+      },
+      "TerrenoPadrao": {
+        "Nome": "Default terrain",
+        "Dica": "Terrain for trips that did not start from a route."
+      }
+    },
+    "Escala": {
+      "Rotulo": "Travel scale",
+      "Unidade": "unit",
+      "Dica": "How many km each ruler unit is worth in this scene (world map, region...). Empty = uses the module's default scale.",
+      "DicaCurta": "Saved on the scene; applies to the ruler and every route in this scene."
+    },
+    "Regua": {
+      "Km": "≈ {km} km",
+      "Dia": "≈ {dias} day",
+      "Dias": "≈ {dias} days"
+    },
+    "Rota": {
+      "Titulo": "Save route",
+      "Destino": "Destination",
+      "DestinoExemplo": "E.g. High Harbor",
+      "Visivel": "Players see the route on the map",
+      "Salvar": "Save route",
+      "SemMedicao": "Measure the path with the ruler in this scene first (drag with the ruler, click to add bends), then save.",
+      "Salva": "Route saved: {nome}. Select the drawing and use the hiker button in the HUD to travel.",
+      "SemNome": "unnamed",
+      "SemDistancia": "This drawing has no distance to measure.",
+      "Terreno": "Main terrain",
+      "TerrenoDica": "Sets the daily obstacle chance (road 5%, plains 10%, forest 20%, desert 25%, snow 30%, mountains and swamp 35%); the day's weather adds 10% (mild) or 25% (severe)."
+    },
+    "Viajar": {
+      "Titulo": "Travel along this route",
+      "NoMapa": "Distance on the map",
+      "Condutores": "Guides (roll the 1d100)",
+      "CondutoresDica": "Whoever leads the party rolls the 1d100 encounter each day. Nobody checked = any player may roll.",
+      "SemJogadores": "There are no players in this world.",
+      "Tabela": "Encounter table",
+      "DiaADia": "Day-by-day travel (watches and one 1d100 per dawn)",
+      "Dica": "Continue opens the Calendário da Mesa trip already filled in; there you check pace and hours per day and click Depart.",
+      "Total": "Total: {km} km",
+      "SemEscala": "Set the scale (km per unit) to compute the trip.",
+      "Continuar": "Continue in the calendar",
+      "SemCalendario": "Table Navigation needs Calendário da Mesa active.",
+      "CalendarioAntigo": "Update Calendário da Mesa to 4.12.0 or newer: this dialog is not prefilled yet. Distance: {km} km.",
+      "PorEstaRota": "Travel along this route",
+      "UsarComoRota": "Use as route and travel"
+    },
+    "Tabela": {
+      "Nome": "Road Encounters (1d100)",
+      "Descricao": "<p>Rolled by the guides each travel day. 1–5: disaster · 6–25: trouble · 26–75: ordinary road · 76–95: luck · 96–100: great find. Edit freely: each result's kind comes from its number range.</p>",
+      "Emboscada": {
+        "Nome": "Planned ambush",
+        "Texto": "A well-armed band waits at a narrow point of the road. They strike by surprise, aiming first at the animals and the cargo."
+      },
+      "Fera": {
+        "Nome": "Territorial beast",
+        "Texto": "A large, hungry creature claims this stretch of road. It stalks the party until nightfall unless someone drives it off."
+      },
+      "Saqueadores": {
+        "Nome": "Raiders",
+        "Texto": "A small group of thieves demands a toll. They can be intimidated, persuaded or fought."
+      },
+      "Desmoronamento": {
+        "Nome": "Blocked road",
+        "Texto": "A rockfall, fallen bridge or flooded river closes the way. Going around costs half a day, or a risky check to cross."
+      },
+      "Tempestade": {
+        "Nome": "Weather turns",
+        "Texto": "A sudden storm turns the road to mud. Difficult terrain until the end of the day and a saving throw against cold or fatigue."
+      },
+      "Viajantes": {
+        "Nome": "Fellow travelers",
+        "Texto": "Pilgrims, couriers or a family on the move cross paths with the party. They bring news (true or not) from the destination."
+      },
+      "Tranquilo": {
+        "Nome": "Quiet day",
+        "Texto": "The road goes on without incident. A good time for conversations, memories and small scenes between the characters."
+      },
+      "Ruinas": {
+        "Nome": "Roadside ruins",
+        "Texto": "Ancient stones, a marker or a forgotten shrine. It may be just scenery, or the start of another story."
+      },
+      "Rastros": {
+        "Nome": "Strange tracks",
+        "Texto": "Footprints, an abandoned camp or an overturned cart. A careful look reveals what passed through here."
+      },
+      "Caravana": {
+        "Nome": "Merchant caravan",
+        "Texto": "Friendly traders offer barter, hot food and company on the road. Prices a little better than in town."
+      },
+      "Atalho": {
+        "Nome": "Shortcut",
+        "Texto": "A hunter or an old map shows a shorter path. The party gains half a day of travel."
+      },
+      "Fonte": {
+        "Nome": "Perfect campsite",
+        "Texto": "Clean water, easy game and natural shelter. Tonight's rest is peaceful and everyone wakes refreshed."
+      },
+      "Patrulha": {
+        "Nome": "Friendly patrol",
+        "Texto": "Local guards or rangers escort the party for a stretch. Nobody dares attack, and they share valuable information."
+      },
+      "Tesouro": {
+        "Nome": "Great find",
+        "Texto": "A rare discovery: a forgotten cache, an unexpected ally or a special item. The GM decides the road's gift."
+      }
+    },
+    "Pedido": {
+      "Titulo": "Road encounter: roll 1d100",
+      "TituloDia": "Travel day {dia}: roll 1d100",
+      "TituloDias": "{n}-day trip: roll 1d100 per day",
+      "Rumo": "heading to {destino}",
+      "Quem": "Who rolls: {quem}",
+      "Qualquer": "any player",
+      "Rolar": "Roll 1d100",
+      "RolarFaltam": "Roll 1d100 ({n} left)",
+      "Aguardando": "Waiting for {quem} to roll.",
+      "Feito": "All rolls done.",
+      "NaoCondutor": "Only the guides chosen by the GM roll the encounter.",
+      "SemMestre": "The GM must be online to read the encounter.",
+      "Flavor": "Leading the trip: road encounter"
+    },
+    "Resultado": {
+      "SemTabela": "No encounter table",
+      "Rolou": "Rolled by {quem}"
+    },
+    "Tipo": {
+      "pessimo": "Disaster",
+      "ruim": "Trouble",
+      "neutro": "Road",
+      "bom": "Luck",
+      "otimo": "Great find",
+      "oculto": "?"
+    },
+    "Atalhos": {
+      "SalvarRota": {
+        "Nome": "Save the last measurement as a route",
+        "Dica": "Turns the path measured with the ruler into a route drawing on the map."
+      }
+    },
+    "Controles": {
+      "SalvarRota": "Save the last ruler measurement as a route",
+      "PedirRolagem": "Ask the guides for a 1d100 encounter",
+      "TestarObstaculo": "Check for a road obstacle now"
+    },
+    "Terreno": {
+      "estrada": "Road",
+      "planicie": "Plains",
+      "floresta": "Forest",
+      "montanha": "Mountains or hills",
+      "pantano": "Swamp",
+      "deserto": "Desert",
+      "gelo": "Snow and ice"
+    },
+    "Clima": {
+      "chuva": "Rain",
+      "neve": "Snow and cold",
+      "nevoa": "Fog",
+      "vento": "Wind",
+      "calor": "Heat"
+    },
+    "Obstaculo": {
+      "Buraco": {
+        "Nome": "Potholed road",
+        "Texto": "Holes and broken stretches force a slow pace, leading the animals on foot."
+      },
+      "Ponte": {
+        "Nome": "Bridge under repair",
+        "Texto": "The bridge is closed for repairs. Wait for the ferry or look for a ford."
+      },
+      "Pedagio": {
+        "Nome": "Checkpoint",
+        "Texto": "Guards search carts and ask for papers. The line moves slowly."
+      },
+      "Carroca": {
+        "Nome": "Overturned cart",
+        "Texto": "An overturned cart blocks the road. Helping the owner or clearing a way takes time."
+      },
+      "Riacho": {
+        "Nome": "Unbridged stream",
+        "Texto": "A wide stream cuts the path. A shallow crossing must be found."
+      },
+      "Capim": {
+        "Nome": "Tall grass",
+        "Texto": "Waist-high grass hides holes. The march becomes slow and tiring."
+      },
+      "Manada": {
+        "Nome": "Herd crossing",
+        "Texto": "A herd crosses the plain. Waiting is safer than going through it."
+      },
+      "Erosao": {
+        "Nome": "Deep gully",
+        "Texto": "Erosion opened a ditch across the land. The party must go around."
+      },
+      "Arvore": {
+        "Nome": "Fallen tree",
+        "Texto": "A huge trunk blocks the trail. Cut through or detour into the thick woods."
+      },
+      "Mata": {
+        "Nome": "Dense undergrowth",
+        "Texto": "The trail vanishes into the vegetation. The way must be hacked open."
+      },
+      "Trilha": {
+        "Nome": "Lost trail",
+        "Texto": "The trail markers disappear. A Survival check finds the way back."
+      },
+      "Espinhos": {
+        "Nome": "Thornbrake",
+        "Texto": "A thorny stretch tears clothes and hurts the animals. Slow, painful progress."
+      },
+      "Deslizamento": {
+        "Nome": "Landslide",
+        "Texto": "Rocks and earth have buried the pass. Clearing it or finding another route costs hours."
+      },
+      "Desfiladeiro": {
+        "Nome": "Cliff edge",
+        "Texto": "The path narrows at the edge of a drop. The animals must be led one by one."
+      },
+      "Ar": {
+        "Nome": "Thin air",
+        "Texto": "The altitude tires everyone. Constitution checks, or a level of exhaustion for anyone who pushes on."
+      },
+      "Passagem": {
+        "Nome": "Pass closed",
+        "Texto": "The main pass is blocked. The detour around the other slope takes almost a day."
+      },
+      "Lamacal": {
+        "Nome": "Mire",
+        "Texto": "Mud traps wheels and hooves. Every cart has to be pushed."
+      },
+      "Areia": {
+        "Nome": "Quicksand",
+        "Texto": "A patch of quicksand swallows an animal or a careless traveler."
+      },
+      "Insetos": {
+        "Nome": "Insect swarm",
+        "Texto": "Mosquitoes and flies torment the party. Poor rest and a risk of fever."
+      },
+      "Inundado": {
+        "Nome": "Flooded stretch",
+        "Texto": "The water rose over the trail. Wade chest-deep or wait for it to drop."
+      },
+      "Dunas": {
+        "Nome": "Shifting dunes",
+        "Texto": "The wind moved the dunes and the landmarks are gone. The route must be redone."
+      },
+      "Oasis": {
+        "Nome": "Dry oasis",
+        "Texto": "The expected oasis is dry. Ration water and detour to another well."
+      },
+      "Miragem": {
+        "Nome": "Mirage",
+        "Texto": "The party follows a mirage for hours before noticing the mistake."
+      },
+      "Rochas": {
+        "Nome": "Stone field",
+        "Texto": "Loose, sharp stones hurt hooves and break wheels."
+      },
+      "Fenda": {
+        "Nome": "Ice crevasse",
+        "Texto": "A crack hidden by snow. Whoever leads must test the ground."
+      },
+      "LagoGelo": {
+        "Nome": "Frozen lake",
+        "Texto": "Crossing the ice is shorter, but it creaks. Going around is safe and slow."
+      },
+      "Avalanche": {
+        "Nome": "Avalanche",
+        "Texto": "An avalanche comes down the slope. The party must take cover, then dig out."
+      },
+      "Branco": {
+        "Nome": "Whiteout",
+        "Texto": "Snow and sky blend together. With no reference, the party walks in circles."
+      },
+      "Lama": {
+        "Nome": "Mud road",
+        "Texto": "The rain turned the road into deep mud. Difficult terrain all day."
+      },
+      "Cheia": {
+        "Nome": "River in flood",
+        "Texto": "The river overflowed and took the bridge or ford. Wait for the water to drop."
+      },
+      "Raio": {
+        "Nome": "Lightning strike",
+        "Texto": "Lightning strikes nearby and spooks the animals, which bolt and must be rounded up."
+      },
+      "Abrigo": {
+        "Nome": "Seeking shelter",
+        "Texto": "The storm is too strong to go on. The party waits under a rock or tree."
+      },
+      "Montes": {
+        "Nome": "Deep snow",
+        "Texto": "Snow piles up to the knees. Every step costs double."
+      },
+      "Congelado": {
+        "Nome": "Frozen gear",
+        "Texto": "Ropes, waterskins and buckles froze overnight. Setting out takes a while."
+      },
+      "Hipotermia": {
+        "Nome": "Dangerous cold",
+        "Texto": "The cold bites. Anyone without proper clothing makes a Constitution save."
+      },
+      "Soterrado": {
+        "Nome": "Buried road",
+        "Texto": "The blizzard covered the whole road. A way must be shoveled open."
+      },
+      "Perdidos": {
+        "Nome": "Lost in the fog",
+        "Texto": "The fog swallows the road. The party only notices the wrong turn hours later."
+      },
+      "Separados": {
+        "Nome": "Party split",
+        "Texto": "Someone (or an animal) strays from the party in the fog. They must be called and searched for."
+      },
+      "Marcos": {
+        "Nome": "Hidden markers",
+        "Texto": "Signs and markers can't be seen. Survival checks to keep the heading."
+      },
+      "Barulho": {
+        "Nome": "Sounds in the fog",
+        "Texto": "Footsteps and voices around keep everyone on edge. It may be nothing, or not."
+      },
+      "Tenda": {
+        "Nome": "Camp blown away",
+        "Texto": "The wind rips up tents and scatters the cargo. Gathering it all takes time."
+      },
+      "Galhos": {
+        "Nome": "Flying branches",
+        "Texto": "Branches and debris fly across the road. Better to wait out the gusts."
+      },
+      "Poeira": {
+        "Nome": "Dust cloud",
+        "Texto": "Dust or ash blinds the party. Only slow progress with cloth over the face."
+      },
+      "Montaria": {
+        "Nome": "Spooked mounts",
+        "Texto": "The wind spooks the mounts. An Animal Handling check, or they refuse to go on."
+      },
+      "Agua": {
+        "Nome": "Water running low",
+        "Texto": "The heat drains the water faster than planned. A detour is needed to find more."
+      },
+      "Insolacao": {
+        "Nome": "Heatstroke",
+        "Texto": "Anyone not shielded from the sun makes a Constitution save or gains exhaustion."
+      },
+      "Animais": {
+        "Nome": "Exhausted animals",
+        "Texto": "The animals stop pulling in the midday heat. A forced rest in the shade."
+      },
+      "Noite": {
+        "Nome": "Travel by night",
+        "Texto": "It is so hot that the party starts walking at night and sleeping by day."
+      },
+      "Pasta": "Table Navigation: obstacles",
+      "Prefixo": "Obstacles",
+      "DescricaoTabela": "Drawn when the road gets stuck in this terrain or weather. Each result's delay in hours is in the navegacao-mesa.atraso flag; edit the texts freely.",
+      "Resumo": "1d100: {valor} (chance {chance}%) · {terreno} · {clima}",
+      "TempoBom": "fair weather",
+      "Livre": "Clear road today",
+      "LivreDia": "Day {dia}: clear road",
+      "PeloTempo": "Weather obstacle",
+      "PeloTerreno": "Terrain obstacle",
+      "SemTabela": "Obstacle (no table)",
+      "Atraso": "Suggested delay: {h} h",
+      "Aplicar": "Apply the delay (+{h} h)",
+      "Aplicado": "{h} h delay applied to the clock.",
+      "Dia": "Day {dia}"
+    }
+  }
+}

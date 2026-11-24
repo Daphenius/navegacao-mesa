@@ -1,0 +1,404 @@
+{
+  "NAVMESA": {
+    "Nome": "Navegação da Mesa",
+    "Config": {
+      "EscalaPadrao": {
+        "Nome": "Escala de viagem padrão (km por unidade da régua)",
+        "Dica": "Quantos km vale cada unidade da grade (ex.: cada metro) nas cenas que não têm escala própria. 0 = desligado. Cada cena pode ter a sua na aba Grade da configuração da cena."
+      },
+      "KmPorDia": {
+        "Nome": "km por dia de viagem (estimativa na régua)",
+        "Dica": "Usado só para mostrar os dias na régua. Padrão: ritmo normal (4,8 km/h) por 8 horas = 38,4 km. A viagem de verdade usa o ritmo escolhido no calendário."
+      },
+      "MostrarNaRegua": {
+        "Nome": "Mostrar km na régua",
+        "Dica": "Ao medir numa cena com escala de viagem, cada ponto da régua mostra também os km e o último mostra os dias."
+      },
+      "CorRota": {
+        "Nome": "Cor das rotas",
+        "Dica": "Cor da linha das rotas salvas no mapa."
+      },
+      "PedirRolagem": {
+        "Nome": "Pedir 1d100 a cada dia de viagem",
+        "Dica": "Ao partir pela viagem do Calendário da Mesa (e a cada amanhecer na viagem dia a dia), aparece no chat o pedido de 1d100 para os condutores."
+      },
+      "ResultadoVisivel": {
+        "Nome": "Quem vê o encontro",
+        "Dica": "Todos: o encontro aparece no chat para a mesa. Só o mestre: os jogadores veem só o número rolado.",
+        "Todos": "Todos",
+        "Mestre": "Só o mestre"
+      },
+      "Obstaculos": {
+        "Nome": "Obstáculos do caminho",
+        "Dica": "A cada dia de viagem o mestre rola 1d100 contra a chance do dia (terreno da rota + clima do Calendário da Mesa). Se cair, um obstáculo aparece no chat com o atraso sugerido."
+      },
+      "TerrenoPadrao": {
+        "Nome": "Terreno padrão",
+        "Dica": "Terreno das viagens que não saíram de uma rota."
+      }
+    },
+    "Escala": {
+      "Rotulo": "Escala de viagem",
+      "Unidade": "unidade",
+      "Dica": "Quantos km vale cada unidade da régua nesta cena (mapa-múndi, região...). Vazio = usa a escala padrão das configurações do módulo.",
+      "DicaCurta": "Fica gravada na cena; vale para a régua e para todas as rotas desta cena."
+    },
+    "Regua": {
+      "Km": "≈ {km} km",
+      "Dia": "≈ {dias} dia",
+      "Dias": "≈ {dias} dias"
+    },
+    "Rota": {
+      "Titulo": "Salvar rota",
+      "Destino": "Destino",
+      "DestinoExemplo": "Ex.: Porto Alto",
+      "Visivel": "Jogadores veem a rota no mapa",
+      "Salvar": "Salvar rota",
+      "SemMedicao": "Meça o caminho com a régua nesta cena primeiro (arraste com a régua, clique para fazer curvas) e depois salve.",
+      "Salva": "Rota salva: {nome}. Selecione o desenho e use o botão do caminhante no HUD para viajar.",
+      "SemNome": "sem nome",
+      "SemDistancia": "Este desenho não tem distância para medir.",
+      "Terreno": "Terreno predominante",
+      "TerrenoDica": "Define a chance de obstáculo por dia (estrada 5%, planície 10%, floresta 20%, deserto 25%, neve 30%, montanha e pântano 35%); o clima do dia soma 10% (leve) ou 25% (forte)."
+    },
+    "Viajar": {
+      "Titulo": "Viajar por esta rota",
+      "NoMapa": "Distância no mapa",
+      "Condutores": "Condutores (rolam o 1d100)",
+      "CondutoresDica": "Quem conduz o grupo rola o 1d100 de encontro a cada dia. Ninguém marcado = qualquer jogador pode rolar.",
+      "SemJogadores": "Não há jogadores cadastrados.",
+      "Tabela": "Tabela de encontros",
+      "DiaADia": "Viagem dia a dia (vigias e um 1d100 por amanhecer)",
+      "Dica": "Continuar abre a viagem do Calendário da Mesa já preenchida; lá você confere o ritmo e as horas por dia e clica em Partir.",
+      "Total": "Total: {km} km",
+      "SemEscala": "Defina a escala (quantos km vale cada unidade) para calcular a viagem.",
+      "Continuar": "Continuar no calendário",
+      "SemCalendario": "Navegação da Mesa precisa do Calendário da Mesa ativo.",
+      "CalendarioAntigo": "Atualize o Calendário da Mesa para a 4.12.0 ou mais nova: este diálogo ainda não vem preenchido. Distância: {km} km.",
+      "PorEstaRota": "Viajar por esta rota",
+      "UsarComoRota": "Usar como rota e viajar"
+    },
+    "Tabela": {
+      "Nome": "Encontros na Estrada (1d100)",
+      "Descricao": "<p>Rolada pelos condutores a cada dia de viagem. 1–5: desastre · 6–25: problema · 26–75: estrada comum · 76–95: sorte · 96–100: grande achado. Edite à vontade: o tipo de cada resultado vem da faixa do número.</p>",
+      "Emboscada": {
+        "Nome": "Emboscada planejada",
+        "Texto": "Um bando bem armado esperava o grupo num ponto estreito do caminho. Eles atacam com surpresa e miram primeiro nos animais e na carga."
+      },
+      "Fera": {
+        "Nome": "Fera do território",
+        "Texto": "Uma criatura grande e faminta reivindica esta parte da estrada. Ela persegue o grupo até o anoitecer se ninguém a afastar."
+      },
+      "Saqueadores": {
+        "Nome": "Saqueadores",
+        "Texto": "Um pequeno grupo de ladrões exige pedágio. Podem ser intimidados, convencidos ou enfrentados."
+      },
+      "Desmoronamento": {
+        "Nome": "Caminho bloqueado",
+        "Texto": "Uma queda de pedras, ponte caída ou rio cheio fecha a passagem. Contornar custa meio dia, ou um teste arriscado para atravessar."
+      },
+      "Tempestade": {
+        "Nome": "Tempo virado",
+        "Texto": "Uma tempestade repentina transforma a estrada em lama. Terreno difícil até o fim do dia e um teste de resistência ao frio ou cansaço."
+      },
+      "Viajantes": {
+        "Nome": "Outros viajantes",
+        "Texto": "Peregrinos, mensageiros ou uma família em mudança cruzam com o grupo. Trazem notícias (verdadeiras ou não) do destino."
+      },
+      "Tranquilo": {
+        "Nome": "Dia tranquilo",
+        "Texto": "A estrada segue sem incidentes. Uma boa hora para conversas, lembranças e pequenas cenas entre os personagens."
+      },
+      "Ruinas": {
+        "Nome": "Ruínas à beira do caminho",
+        "Texto": "Pedras antigas, um marco ou um santuário esquecido. Pode ser só paisagem, ou o começo de outra história."
+      },
+      "Rastros": {
+        "Nome": "Rastros estranhos",
+        "Texto": "Pegadas, um acampamento abandonado ou uma carroça virada. Quem olhar com atenção descobre o que passou por ali."
+      },
+      "Caravana": {
+        "Nome": "Caravana mercante",
+        "Texto": "Comerciantes simpáticos oferecem troca, comida quente e companhia na estrada. Preços um pouco melhores que na cidade."
+      },
+      "Atalho": {
+        "Nome": "Atalho",
+        "Texto": "Um caçador ou um mapa velho mostra um caminho mais curto. O grupo ganha meio dia de viagem."
+      },
+      "Fonte": {
+        "Nome": "Pouso perfeito",
+        "Texto": "Água limpa, caça fácil e um abrigo natural. O descanso desta noite é tranquilo e todos acordam bem dispostos."
+      },
+      "Patrulha": {
+        "Nome": "Patrulha amiga",
+        "Texto": "Guardas ou rangers da região acompanham o grupo por um trecho. Ninguém ousa atacar e eles compartilham informações valiosas."
+      },
+      "Tesouro": {
+        "Nome": "Grande achado",
+        "Texto": "Uma descoberta rara: um esconderijo esquecido, um aliado inesperado ou um item especial. O mestre decide o presente da estrada."
+      }
+    },
+    "Pedido": {
+      "Titulo": "Encontro na estrada: role 1d100",
+      "TituloDia": "Dia {dia} da viagem: role 1d100",
+      "TituloDias": "Viagem de {n} dias: role 1d100 por dia",
+      "Rumo": "rumo a {destino}",
+      "Quem": "Quem rola: {quem}",
+      "Qualquer": "qualquer jogador",
+      "Rolar": "Rolar 1d100",
+      "RolarFaltam": "Rolar 1d100 (faltam {n})",
+      "Aguardando": "Esperando a rolagem de {quem}.",
+      "Feito": "Rolagens feitas.",
+      "NaoCondutor": "Só os condutores escolhidos pelo mestre rolam o encontro.",
+      "SemMestre": "O mestre precisa estar online para ler o encontro.",
+      "Flavor": "Condução da viagem: encontro na estrada"
+    },
+    "Resultado": {
+      "SemTabela": "Sem tabela de encontros",
+      "Rolou": "Rolado por {quem}"
+    },
+    "Tipo": {
+      "pessimo": "Desastre",
+      "ruim": "Problema",
+      "neutro": "Estrada",
+      "bom": "Sorte",
+      "otimo": "Grande achado",
+      "oculto": "?"
+    },
+    "Atalhos": {
+      "SalvarRota": {
+        "Nome": "Salvar a última medição como rota",
+        "Dica": "Transforma o caminho medido com a régua num desenho de rota no mapa."
+      }
+    },
+    "Controles": {
+      "SalvarRota": "Salvar a última medição da régua como rota",
+      "PedirRolagem": "Pedir 1d100 de encontro aos condutores",
+      "TestarObstaculo": "Testar obstáculo do caminho agora"
+    },
+    "Terreno": {
+      "estrada": "Estrada",
+      "planicie": "Planície",
+      "floresta": "Floresta",
+      "montanha": "Montanha ou colinas",
+      "pantano": "Pântano",
+      "deserto": "Deserto",
+      "gelo": "Neve e gelo"
+    },
+    "Clima": {
+      "chuva": "Chuva",
+      "neve": "Neve e frio",
+      "nevoa": "Névoa",
+      "vento": "Vento",
+      "calor": "Calor"
+    },
+    "Obstaculo": {
+      "Buraco": {
+        "Nome": "Estrada esburacada",
+        "Texto": "Buracos e trechos quebrados obrigam a seguir devagar, guiando os animais a pé."
+      },
+      "Ponte": {
+        "Nome": "Ponte em reparo",
+        "Texto": "A ponte está fechada para conserto. É preciso esperar a balsa ou procurar um vau."
+      },
+      "Pedagio": {
+        "Nome": "Posto de controle",
+        "Texto": "Guardas revistam carroças e pedem documentos. A fila anda devagar."
+      },
+      "Carroca": {
+        "Nome": "Carroça tombada",
+        "Texto": "Uma carroça virada bloqueia a estrada. Ajudar o dono ou abrir passagem leva tempo."
+      },
+      "Riacho": {
+        "Nome": "Riacho sem ponte",
+        "Texto": "Um riacho largo corta o caminho. É preciso achar um ponto raso para atravessar."
+      },
+      "Capim": {
+        "Nome": "Capim alto",
+        "Texto": "O capim passa da cintura e esconde buracos. A marcha fica lenta e cansativa."
+      },
+      "Manada": {
+        "Nome": "Manada no caminho",
+        "Texto": "Uma manada atravessa a planície. Esperar é mais seguro que passar no meio."
+      },
+      "Erosao": {
+        "Nome": "Valeta funda",
+        "Texto": "Uma erosão abriu uma vala no terreno. É preciso contornar."
+      },
+      "Arvore": {
+        "Nome": "Árvore caída",
+        "Texto": "Um tronco enorme fecha a trilha. Cortar ou contornar pela mata fechada."
+      },
+      "Mata": {
+        "Nome": "Mata fechada",
+        "Texto": "A trilha some no meio da vegetação. É preciso abrir caminho a facão."
+      },
+      "Trilha": {
+        "Nome": "Trilha perdida",
+        "Texto": "As marcas da trilha desaparecem. Um teste de Sobrevivência acha o caminho de volta."
+      },
+      "Espinhos": {
+        "Nome": "Espinheiro",
+        "Texto": "Um trecho de espinhos rasga roupas e fere os animais. Avanço lento e doloroso."
+      },
+      "Deslizamento": {
+        "Nome": "Deslizamento",
+        "Texto": "Pedras e terra soterraram a passagem. Limpar ou achar outra rota custa horas."
+      },
+      "Desfiladeiro": {
+        "Nome": "Beira do desfiladeiro",
+        "Texto": "O caminho estreita à beira do abismo. Os animais precisam ser guiados um a um."
+      },
+      "Ar": {
+        "Nome": "Ar rarefeito",
+        "Texto": "A altitude cansa. Testes de Constituição ou um nível de exaustão para quem forçar o passo."
+      },
+      "Passagem": {
+        "Nome": "Passagem fechada",
+        "Texto": "O desfiladeiro principal está bloqueado. A volta pela outra encosta leva quase um dia."
+      },
+      "Lamacal": {
+        "Nome": "Lamaçal",
+        "Texto": "A lama prende rodas e cascos. Cada carroça precisa ser empurrada."
+      },
+      "Areia": {
+        "Nome": "Areia movediça",
+        "Texto": "Um trecho de areia movediça engole um animal ou um viajante descuidado."
+      },
+      "Insetos": {
+        "Nome": "Nuvem de insetos",
+        "Texto": "Mosquitos e moscas atormentam o grupo. Descanso ruim e risco de febre."
+      },
+      "Inundado": {
+        "Nome": "Trecho inundado",
+        "Texto": "A água subiu e cobriu a trilha. Atravessar com água no peito ou esperar baixar."
+      },
+      "Dunas": {
+        "Nome": "Dunas móveis",
+        "Texto": "O vento mudou as dunas e os marcos sumiram. A rota precisa ser refeita."
+      },
+      "Oasis": {
+        "Nome": "Oásis seco",
+        "Texto": "O oásis esperado está seco. Racionar água e desviar para outro poço."
+      },
+      "Miragem": {
+        "Nome": "Miragem",
+        "Texto": "O grupo segue uma miragem por horas antes de perceber o erro."
+      },
+      "Rochas": {
+        "Nome": "Campo de pedras",
+        "Texto": "Pedras soltas e afiadas ferem cascos e quebram rodas."
+      },
+      "Fenda": {
+        "Nome": "Fenda no gelo",
+        "Texto": "Uma rachadura escondida pela neve. Quem vai na frente precisa testar o chão."
+      },
+      "LagoGelo": {
+        "Nome": "Lago congelado",
+        "Texto": "Atravessar pelo gelo é mais curto, mas ele estala. Contornar é seguro e lento."
+      },
+      "Avalanche": {
+        "Nome": "Avalanche",
+        "Texto": "Uma avalanche desce a encosta. O grupo precisa se abrigar e depois cavar a saída."
+      },
+      "Branco": {
+        "Nome": "Tudo branco",
+        "Texto": "Neve e céu se confundem. Sem referência, o grupo anda em círculos."
+      },
+      "Lama": {
+        "Nome": "Estrada de lama",
+        "Texto": "A chuva transformou o caminho em lama funda. Terreno difícil o dia todo."
+      },
+      "Cheia": {
+        "Nome": "Rio em cheia",
+        "Texto": "O rio transbordou e levou a ponte ou o vau. Esperar a água baixar."
+      },
+      "Raio": {
+        "Nome": "Raio perto",
+        "Texto": "Um raio cai perto do grupo e assusta os animais, que fogem e precisam ser recolhidos."
+      },
+      "Abrigo": {
+        "Nome": "Parar para se abrigar",
+        "Texto": "A tempestade é forte demais para seguir. O grupo espera embaixo de uma rocha ou árvore."
+      },
+      "Montes": {
+        "Nome": "Neve funda",
+        "Texto": "A neve acumulada chega aos joelhos. Cada passo custa o dobro."
+      },
+      "Congelado": {
+        "Nome": "Equipamento congelado",
+        "Texto": "Cordas, odres e fivelas congelaram durante a noite. Partir demora."
+      },
+      "Hipotermia": {
+        "Nome": "Frio perigoso",
+        "Texto": "O frio corta. Quem não tiver roupas adequadas faz um teste de Constituição."
+      },
+      "Soterrado": {
+        "Nome": "Caminho soterrado",
+        "Texto": "A nevasca cobriu a estrada inteira. É preciso abrir passagem com pás."
+      },
+      "Perdidos": {
+        "Nome": "Perdidos na névoa",
+        "Texto": "A névoa engole a estrada. O grupo só descobre o desvio horas depois."
+      },
+      "Separados": {
+        "Nome": "Grupo separado",
+        "Texto": "Alguém (ou um animal) se perde do grupo na névoa. É preciso chamar e procurar."
+      },
+      "Marcos": {
+        "Nome": "Marcos invisíveis",
+        "Texto": "Placas e marcos não aparecem. Testes de Sobrevivência para manter a direção."
+      },
+      "Barulho": {
+        "Nome": "Sons na névoa",
+        "Texto": "Passos e vozes ao redor deixam todos em alerta. Pode ser nada, ou não."
+      },
+      "Tenda": {
+        "Nome": "Acampamento destruído",
+        "Texto": "O vento arranca tendas e espalha a carga. Recolher tudo leva tempo."
+      },
+      "Galhos": {
+        "Nome": "Galhos voando",
+        "Texto": "Galhos e detritos voam pela estrada. Melhor esperar a rajada passar."
+      },
+      "Poeira": {
+        "Nome": "Nuvem de poeira",
+        "Texto": "Poeira ou cinza cega o grupo. Seguir só com panos no rosto e devagar."
+      },
+      "Montaria": {
+        "Nome": "Montarias assustadas",
+        "Texto": "O vento assusta as montarias. Teste de Lidar com Animais ou elas se recusam a seguir."
+      },
+      "Agua": {
+        "Nome": "Água acabando",
+        "Texto": "O calor faz a água acabar antes do previsto. É preciso desviar para buscar mais."
+      },
+      "Insolacao": {
+        "Nome": "Insolação",
+        "Texto": "Quem não se proteger do sol faz um teste de Constituição ou ganha exaustão."
+      },
+      "Animais": {
+        "Nome": "Animais exaustos",
+        "Texto": "Os animais param de puxar no calor do meio-dia. Descanso forçado na sombra."
+      },
+      "Noite": {
+        "Nome": "Viajar à noite",
+        "Texto": "O calor é tanto que o grupo passa a andar de noite e dormir de dia."
+      },
+      "Pasta": "Navegação da Mesa: obstáculos",
+      "Prefixo": "Obstáculos",
+      "DescricaoTabela": "Sorteada quando o caminho trava neste terreno ou com este tempo. O atraso em horas de cada resultado fica na flag navegacao-mesa.atraso; edite os textos à vontade.",
+      "Resumo": "1d100: {valor} (chance {chance}%) · {terreno} · {clima}",
+      "TempoBom": "tempo bom",
+      "Livre": "Caminho livre hoje",
+      "LivreDia": "Dia {dia}: caminho livre",
+      "PeloTempo": "Obstáculo pelo tempo",
+      "PeloTerreno": "Obstáculo do terreno",
+      "SemTabela": "Obstáculo (sem tabela)",
+      "Atraso": "Atraso sugerido: {h} h",
+      "Aplicar": "Aplicar o atraso (+{h} h)",
+      "Aplicado": "Atraso de {h} h aplicado ao relógio.",
+      "Dia": "Dia {dia}"
+    }
+  }
+}

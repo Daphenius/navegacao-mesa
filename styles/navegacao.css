@@ -1,0 +1,48 @@
+/* Navegação da Mesa — prefixo nvm- (não usar cm-, que é do Calendário da Mesa, nem cmb-, do Combate da Mesa) */
+
+/* régua */
+.waypoint-label .nvm-km { margin-left: 0.4em; color: #f3c46b; white-space: nowrap; }
+
+/* diálogos */
+.nvm-form { display: flex; flex-direction: column; gap: 0.5rem; }
+.nvm-form fieldset { padding: 0.4rem 0.6rem; }
+.nvm-chips { display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; }
+.nvm-chip { display: inline-flex; align-items: center; gap: 0.3rem; }
+.nvm-total { margin: 0; font-weight: bold; }
+
+/* cores dos tipos de encontro */
+.nvm-tipo-pessimo { --nvm-cor: #b23a3a; }
+.nvm-tipo-ruim    { --nvm-cor: #c7792b; }
+.nvm-tipo-neutro  { --nvm-cor: #7d8794; }
+.nvm-tipo-bom     { --nvm-cor: #3f9a5a; }
+.nvm-tipo-otimo   { --nvm-cor: #d4a72c; }
+.nvm-tipo-oculto  { --nvm-cor: #7d8794; }
+
+/* pedido de rolagem no chat */
+.nvm-pedido header { display: flex; align-items: baseline; gap: 0.35rem; flex-wrap: wrap; }
+.nvm-pedido header small { opacity: 0.75; }
+.nvm-pedido .nvm-quem { margin: 0.25rem 0; font-size: 0.9em; opacity: 0.85; }
+.nvm-pedido button { width: 100%; }
+.nvm-pedido .nvm-espera, .nvm-pedido .nvm-feito { margin: 0.25rem 0 0; font-style: italic; opacity: 0.85; }
+.nvm-rolagens { margin: 0.25rem 0; padding-left: 1.4rem; }
+.nvm-rolagens li { border-left: 3px solid var(--nvm-cor); padding-left: 0.35rem; margin: 0.1rem 0; }
+.nvm-rolagens small { opacity: 0.7; }
+
+/* resultado do encontro */
+.nvm-resultado { border-left: 4px solid var(--nvm-cor); padding: 0.2rem 0 0.2rem 0.5rem; }
+.nvm-resultado header { display: flex; align-items: center; gap: 0.4rem; color: var(--nvm-cor); font-weight: bold; text-transform: uppercase; font-size: 0.85em; letter-spacing: 0.04em; }
+.nvm-resultado .nvm-valor { margin-left: auto; font-size: 1.5em; min-width: 2.2em; text-align: center; border: 2px solid var(--nvm-cor); border-radius: 6px; color: inherit; }
+.nvm-resultado h3 { margin: 0.25rem 0; border: none; }
+.nvm-resultado .nvm-desc p { margin: 0.2rem 0; }
+.nvm-resultado footer { font-size: 0.8em; opacity: 0.7; }
+.nvm-resultado.nvm-extremo { background: color-mix(in srgb, var(--nvm-cor) 14%, transparent); border-left-width: 6px; }
+
+/* obstáculos do caminho */
+.nvm-fonte-terreno { --nvm-cor: #8a6a3b; }
+.nvm-fonte-clima   { --nvm-cor: #4f7ea8; }
+.nvm-obstaculo { border-left: 4px solid var(--nvm-cor); padding: 0.2rem 0 0.2rem 0.5rem; }
+.nvm-obstaculo header { color: var(--nvm-cor); font-weight: bold; text-transform: uppercase; font-size: 0.85em; letter-spacing: 0.04em; }
+.nvm-obstaculo h3 { margin: 0.25rem 0; border: none; }
+.nvm-obstaculo .nvm-atraso { margin: 0.25rem 0; font-weight: bold; }
+.nvm-obstaculo button { width: 100%; }
+.nvm-obstaculo footer, .nvm-livre small { font-size: 0.8em; opacity: 0.7; }
